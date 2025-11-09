@@ -1,14 +1,6 @@
-const express = require("express");
-const server = express();
+var http = require('http');
 
-server.all("/", (req, res) => {
-    res.send("Bot this started!");
-})
-
-function keepAlive() {
-    server.listen(3000, () => {
-        console.log("Server is Ready!");
-    });
-}
-
-module.exports = keepAlive;
+http.createServer(function (req, res) {
+  res.write("I'm alive");
+  res.end();
+}).listen(8080);
